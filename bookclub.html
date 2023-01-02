@@ -1,0 +1,266 @@
+<html>
+
+<head>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap" />
+</head>
+
+<body>
+
+<div style="display: flex; width: 100%; height: 100%; font-size: 48; text-align: center;">
+    <div id="stage1" class="stage1">
+        <div>
+            <span class="text1_1" style="color: #faaa20;">Пссст.</span>
+            <span class="text1_2">Нажми на кнопку.</span>
+        </div>
+
+        <button id="button-what" class="button-what">Што?</button>
+    </div>
+
+    <div id="stage2" class="stage2">
+        <div>
+            <span class="text2_1">Новый.</span>
+            <span class="text2_2" style="color: #faaa20;">Выше.</span>
+            <span class="text2_3" style="color: #70A288;">Лучше.</span>
+            <span class="text2_4" style="color: #F0D3F7;">Сильнее.</span>
+            <span class="text2_5" style="color: #03B5AA;">Онлайн.</span>
+        </div>
+
+        <button id="button-who" class="button-who">Кто?</button>
+
+        <div id="stage2_2" class="stage2_2">
+            <div>
+                <span class="text3_1" style="color: #faaa20;">Книжный клуб</span>
+                <span class="text3_2" style="color: cyan;">Голубизна.</span>
+            </div>
+            
+            <div class="text3_3" style="color: #c214b7;">Возвращение.</div>
+                
+            <button id="button-where" class="button-where">Где?</button>
+        </div>
+        
+        <div id="stage2_3" class="stage2_3">
+            <a href="https://t.me/+07RClOXmKRE2YzEy">
+                <button class="button-telegram">Telegram</button>
+            </a>
+            
+            <div class="text4">
+                Вступай. Предлагай первую книгу.
+            </div>
+        </div>
+    </div>
+</div>
+
+<script lang="ts">
+    const buttonWhat = document.getElementById("button-what");
+    const stage1 = document.getElementById("stage1");
+    const stage2 = document.getElementById("stage2");
+    
+    const buttonWho = document.getElementById("button-who");
+    const stage2_2 = document.getElementById("stage2_2");
+
+    const buttonWhere = document.getElementById("button-where");
+    const stage2_3 = document.getElementById("stage2_3");
+
+    buttonWhat.addEventListener("click", (ev) => {
+        stage1.classList.add("display-none");
+        stage2.classList.add("active");
+    });
+
+    buttonWho.addEventListener("click", (ev) => {
+        ev.target.classList.add("visibility-hidden");
+        stage2_2.classList.add("active");
+    });
+
+    buttonWhere.addEventListener("click", (ev) => {
+        ev.target.classList.add("visibility-hidden");
+        stage2_3.classList.add("active");
+    });
+</script>
+
+
+
+<style>
+    body {
+        background-color: #000000;
+        background-image: linear-gradient(43deg, #000000 0%, #c214b7 76%, #faaa20 100%);
+        font-family: 'Roboto';
+        color: white;
+        font-weight: bold;
+        margin: 0;
+    }
+
+    button {
+        background-color: #db8b00;
+        padding: 8px 16px;
+        border: none;
+        color: white;
+        font-weight: 600;
+        border-radius: 4px;
+        margin: 16px;
+    }
+
+    button:hover {
+        background-color: #faaa20;
+        cursor: pointer;
+    }
+    
+    button:active {
+        background-color: #db8b00;
+    }
+
+    .stage1 {
+        margin: auto;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .stage2 {
+        margin: auto;
+        display: none;
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .stage2.active {
+        display: flex;
+    }
+
+    .stage2_2 {
+        visibility: hidden;
+    }
+
+    .stage2_2.active {
+        visibility: visible;
+    }
+
+    .stage2_3 {
+        visibility: hidden;
+    }
+
+    .stage2_3.active {
+        visibility: visible;
+    }
+
+    .text1_1 {
+        animation: 3s fadeIn;
+        animation-fill-mode: forwards;
+        
+        opacity: 0;
+    }
+    
+    .text1_2 {
+        animation: 6s fadeIn;
+        animation-fill-mode: forwards;
+        
+        opacity: 0;
+    }
+
+    .stage2.active .text2_1,
+    .stage2.active .text2_2,
+    .stage2.active .text2_3,
+    .stage2.active .text2_4,
+    .stage2.active .text2_5,
+    .stage2.active .button-who {
+        animation: 1s fadeIn;
+        animation-fill-mode: forwards;
+        
+        opacity: 0;
+    }
+
+    .stage2.active .text2_2 {
+        animation-duration: 2s;
+    }
+
+    .stage2.active .text2_3 {
+        animation-duration: 3s;
+    }
+
+    .stage2.active .text2_4 {
+        animation-duration: 4s;
+    }
+
+    .stage2.active .text2_5 {
+        animation-duration: 5s;
+    }
+    
+    .stage2.active .button-who {
+        animation-duration: 8s;
+    }
+
+    .text3_1,
+    .text3_2,
+    .text3_3,
+    .button-where {
+        opacity: 0;
+    }
+
+    .stage2_2.active .text3_1,
+    .stage2_2.active .text3_2,
+    .stage2_2.active .text3_3,
+    .stage2_2.active .button-where {
+        animation: 2s fadeIn;
+        animation-fill-mode: forwards;
+    }
+
+    .stage2_2.active .text3_3 {
+        animation-duration: 4s;
+    }
+
+    .stage2_2.active .button-where {
+        animation-duration: 8s;
+    }
+
+    .button-what {
+        animation: 8s fadeIn;
+        animation-fill-mode: forwards;
+        opacity: 0;
+    }
+
+    .button-telegram {
+        background-color: #229ED9;
+    }
+
+    .button-telegram:hover {
+        background-color: #57b5e0;
+    }
+
+    .button-telegram:active {
+        background-color: #229ED9;
+    }
+
+    .text4 {
+        opacity: 0;
+    }
+
+    .stage2_3.active .button-telegram,
+    .stage2_3.active .text4 {
+        animation: 2s fadeIn;
+        animation-fill-mode: forwards;
+        opacity: 0;
+    }
+
+    .stage2_3.active .text4 {
+        animation-duration: 4s;
+    }
+
+    .display-none {
+        display: none;
+    }
+
+    .visibility-hidden {
+        visibility: hidden;
+    }
+
+    @keyframes fadeIn {
+        50% {
+            opacity: 0;
+        }
+        100% {
+            opacity: 1;
+        }
+    }
+</style>
+
+</body>
+</html>
